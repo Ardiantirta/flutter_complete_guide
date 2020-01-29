@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+import "./question.dart";
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -30,30 +32,11 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text("My First App"),
         ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Text('Drawer Header'),
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-              ),
-              ListTile(
-                title: Text('Item 1'),
-                onTap: () {},
-              ),
-              ListTile(
-                title: Text('Item 2'),
-                onTap: () {},
-              )
-            ],
-          ),
-        ),
         body: Column(
           children: <Widget>[
-            Text(questions[_questionIndex]),
+            Question(
+              questions[_questionIndex],
+            ),
             RaisedButton(
               child: Text("Answer 1"),
               onPressed: answerQuestion,
